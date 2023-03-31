@@ -152,6 +152,13 @@ int main()
     pthread_create(&tid[0], NULL, recv_func, &fd);
     pthread_create(&tid[1], NULL, send_func, &fd);
     pthread_create(&tid[2], NULL, display_func, NULL);
+
+    sleep(1);
+
+    pthread_join(tid[0], NULL);
+    pthread_join(tid[1], NULL);
+    pthread_join(tid[2], NULL);
+    
 }
 
 void encrypt(const unsigned char msg[BUF_LEN], double eText[BUF_LEN])
