@@ -230,6 +230,7 @@ void *send_func(void *arg)
     {
 
         int numSent = sendto(fd, (double *)&encryptedText[i], BUF_LEN, 0, (struct sockaddr *)&clientAddr, sizeof(clientAddr));
+        std::cout<<"sent"<<std::endl;
 #if defined(DEBUG1)
         cout << "Number of bytes sent are " << numSent << endl;
 #endif
