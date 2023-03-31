@@ -201,9 +201,6 @@ void *display_func(void *arg)
         if (messageQueue.empty() == 0)
         {
             msg = messageQueue.front();
-            delete[] messageQueue.front();
-            messageQueue.front() = nullptr;
-            messageQueue.pop();
             if ((strcmp((char *)msg, "Quit")) == 0)
             {
                 is_running = false;
