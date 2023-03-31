@@ -26,7 +26,7 @@ double d;
 double phi;
 
 pthread_t tid[3];
-pthread_mutex_t lock_x;
+
 
 struct sockaddr_in myaddr, clientAddr;
 const int numMessages = 5;
@@ -40,7 +40,8 @@ const unsigned char messageList[numMessages][BUF_LEN] = {
 queue<unsigned char *> messageQueue;
 
 pthread_mutex_t lock_x;
-
+void *display_func(void *arg);
+void *send_func(void *arg);
 void *recv_func(void *arg);
 
 static void shutdownHandler(int sig)
