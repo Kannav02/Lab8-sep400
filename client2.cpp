@@ -158,7 +158,7 @@ int main()
     pthread_join(tid[0], NULL);
     pthread_join(tid[1], NULL);
     pthread_join(tid[2], NULL);
-    
+
 }
 
 void encrypt(const unsigned char msg[BUF_LEN], double eText[BUF_LEN])
@@ -198,13 +198,13 @@ void *display_func(void *arg)
     while (is_running)
     {
         pthread_mutex_lock(&lock_x);
-        if (messageQueue.empty() == false)
+        if (messageQueue.empty() == 0)
         {
             msg = messageQueue.front();
             delete[] messageQueue.front();
             messageQueue.front() = nullptr;
             messageQueue.pop();
-            if ((strcmp((char *)msg, "Quit")) == true)
+            if ((strcmp((char *)msg, "Quit")) == 0)
             {
                 is_running = false;
             }
